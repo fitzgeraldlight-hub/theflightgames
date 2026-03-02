@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0A0806"/>
+  <!-- Outer diamond border -->
+  <path d="M256 48 L464 256 L256 464 L48 256 Z" fill="none" stroke="#D4A843" stroke-width="12" opacity="0.3"/>
+  <!-- Inner diamond -->
+  <path d="M256 96 L416 256 L256 416 L96 256 Z" fill="none" stroke="#D4A843" stroke-width="8" opacity="0.6"/>
+  <!-- Gold fill diamond center -->
+  <path d="M256 160 L352 256 L256 352 L160 256 Z" fill="#D4A843"/>
+  <!-- F letterform -->
+  <text x="256" y="280" font-family="serif" font-weight="900" font-size="140" fill="#0A0806" text-anchor="middle" dominant-baseline="central">F</text>
+</svg>

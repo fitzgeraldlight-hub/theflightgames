@@ -15,6 +15,8 @@
 <meta name="twitter:title" content="THE FLIGHT GAMES — $10,000 Grand Prize">
 <meta name="twitter:description" content="16 Players. One Secret. Only the sharpest survive. June 26-28, 2026. A private town in Texas.">
 <meta name="twitter:image" content="https://theflightgames.com/assets/thumbnail.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -1436,25 +1438,24 @@ footer {
   const btn = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
   if (!btn || !audio) return;
-  audio.volume = 0.07;
+  audio.volume = 0.04;
 
-  // Try to autoplay — browsers may block it
+  // Try to autoplay — mobile browsers will block this
   var playAttempt = audio.play();
   if (playAttempt !== undefined) {
-    playAttempt.catch(function() {
-      // Autoplay blocked — show muted state, play on first user interaction
+    playAttempt.then(function() {
+      // Autoplay worked (desktop) — show playing state
+      btn.classList.remove('muted');
+    }).catch(function() {
+      // Autoplay blocked (mobile) — show muted state
+      audio.pause();
       btn.classList.add('muted');
-      document.addEventListener('click', function startMusic() {
-        audio.play();
-        btn.classList.remove('muted');
-        document.removeEventListener('click', startMusic);
-      }, { once: true });
     });
   }
 
-  btn.addEventListener('click', function(e) {
-    e.stopPropagation();
+  btn.addEventListener('click', function() {
     if (audio.paused) {
+      audio.volume = 0.04;
       audio.play();
       btn.classList.remove('muted');
     } else {
