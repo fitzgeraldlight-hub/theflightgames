@@ -103,6 +103,30 @@ body::before {
   overflow: hidden;
 }
 
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(10, 8, 6, 0.4) 0%, rgba(10, 8, 6, 0.7) 100%),
+    linear-gradient(180deg, rgba(10, 8, 6, 0.5) 0%, rgba(10, 8, 6, 0.3) 40%, rgba(10, 8, 6, 0.6) 100%);
+  pointer-events: none;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -112,6 +136,72 @@ body::before {
     radial-gradient(ellipse 60% 80% at 20% 80%, rgba(139, 45, 45, 0.06) 0%, transparent 50%),
     radial-gradient(ellipse 60% 80% at 80% 80%, rgba(212, 168, 67, 0.04) 0%, transparent 50%),
     linear-gradient(180deg, #0D0B08 0%, #0A0806 40%, #080604 100%);
+}
+
+/* Music toggle button */
+.music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9997;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  background: rgba(10, 8, 6, 0.85);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--gold);
+}
+
+.music-toggle:hover {
+  border-color: var(--gold);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.15);
+}
+
+.music-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.music-toggle .icon-muted { display: none; }
+.music-toggle.muted .icon-playing { display: none; }
+.music-toggle.muted .icon-muted { display: block; }
+
+/* Equalizer bars animation */
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+
+.music-bars span {
+  display: block;
+  width: 3px;
+  background: var(--gold);
+  animation: eqBar 0.8s ease-in-out infinite alternate;
+}
+
+.music-bars span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.music-bars span:nth-child(2) { height: 70%; animation-delay: 0.15s; }
+.music-bars span:nth-child(3) { height: 50%; animation-delay: 0.3s; }
+.music-bars span:nth-child(4) { height: 90%; animation-delay: 0.1s; }
+
+.music-toggle.muted .music-bars span {
+  animation: none;
+  height: 3px;
+}
+
+@keyframes eqBar {
+  0% { height: 20%; }
+  100% { height: 100%; }
 }
 
 /* Animated dust particles */
@@ -1015,8 +1105,30 @@ footer {
 
 <div class="cursor-glow" id="cursorGlow"></div>
 
+<!-- ==================== MUSIC ==================== -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/bg-music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-toggle muted" id="musicToggle" aria-label="Toggle music">
+  <span class="icon-playing">
+    <span class="music-bars">
+      <span></span><span></span><span></span><span></span>
+    </span>
+  </span>
+  <span class="icon-muted">
+    <svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </span>
+</button>
+
 <!-- ==================== HERO ==================== -->
 <section class="hero">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="assets/hero-loop.mov" type="video/quicktime">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-bg"></div>
   <div class="hero-corner hero-corner--tl"></div>
   <div class="hero-corner hero-corner--tr"></div>
@@ -1112,11 +1224,6 @@ footer {
       </div>
     </div>
 
-    <!-- Venue tour video -->
-    <div class="venue-video-wrap reveal reveal-delay-5">
-      <video src="assets/venue-tour.mp4" muted playsinline preload="metadata" controls poster="assets/venue-4.avif"></video>
-      <span class="venue-video-label">Take the tour</span>
-    </div>
   </div>
 </section>
 
@@ -1320,6 +1427,23 @@ footer {
   if (!slider || !display) return;
   slider.addEventListener('input', () => {
     display.textContent = slider.value;
+  });
+})();
+
+// ===== Music Toggle =====
+(function() {
+  const btn = document.getElementById('musicToggle');
+  const audio = document.getElementById('bgMusic');
+  if (!btn || !audio) return;
+  audio.volume = 0.15;
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      btn.classList.remove('muted');
+    } else {
+      audio.pause();
+      btn.classList.add('muted');
+    }
   });
 })();
 
