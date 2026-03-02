@@ -250,6 +250,7 @@ body::before {
   position: relative;
   z-index: 2;
   max-width: 900px;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
 }
 
 .hero-pretext {
@@ -258,8 +259,9 @@ body::before {
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);
   margin-bottom: 2rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
   opacity: 0;
   animation: fadeSlideUp 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -301,8 +303,9 @@ body::before {
   font-family: 'Outfit', sans-serif;
   font-weight: 300;
   font-size: clamp(1rem, 2.5vw, 1.35rem);
-  color: var(--text-secondary);
+  color: rgba(242, 235, 221, 0.85);
   letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   opacity: 0;
@@ -360,7 +363,7 @@ body::before {
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-top: 0.75rem;
 }
 
