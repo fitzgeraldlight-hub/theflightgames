@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE FLIGHT GAMES — Apply Now</title>
+<meta name="description" content="16 Players. One Secret. Only the sharpest survive. June 26-28, 2026.">
+<meta property="og:title" content="THE FLIGHT GAMES — Apply Now">
+<meta property="og:description" content="16 Players. One Secret. Only the sharpest survive. A private town in Texas. June 26-28, 2026.">
+<meta property="og:image" content="assets/thumbnail.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="THE FLIGHT GAMES">
+<meta name="twitter:description" content="16 Players. One Secret. Only the sharpest survive.">
+<meta name="twitter:image" content="assets/thumbnail.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #D4A843;
+  --gold-light: #E8C96A;
+  --gold-dark: #B8922F;
+  --bg-deep: #0A0806;
+  --bg-card: #12100D;
+  --bg-card-hover: #1A1714;
+  --text-primary: #F2EBDD;
+  --text-secondary: #8A8279;
+  --text-muted: #5C564D;
+  --danger: #8B2D2D;
+  --grain-opacity: 0.035;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dark) var(--bg-deep);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== GRAIN OVERLAY ========== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ========== REVEAL ANIMATIONS ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* ========== CUSTOM CURSOR TRAIL ========== */
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease, top 0.3s ease;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212, 168, 67, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(139, 45, 45, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(212, 168, 67, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #0D0B08 0%, #0A0806 40%, #080604 100%);
+}
+
+/* Animated dust particles */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(212, 168, 67, 0.3), transparent),
+    radial-gradient(1px 1px at 40% 70%, rgba(212, 168, 67, 0.2), transparent),
+    radial-gradient(1px 1px at 60% 20%, rgba(212, 168, 67, 0.25), transparent),
+    radial-gradient(1px 1px at 80% 60%, rgba(212, 168, 67, 0.15), transparent),
+    radial-gradient(1.5px 1.5px at 10% 80%, rgba(212, 168, 67, 0.2), transparent),
+    radial-gradient(1px 1px at 90% 40%, rgba(212, 168, 67, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(212, 168, 67, 0.15), transparent),
+    radial-gradient(1.5px 1.5px at 70% 90%, rgba(212, 168, 67, 0.2), transparent);
+  background-size: 300px 300px;
+  animation: dustDrift 20s linear infinite;
+}
+
+@keyframes dustDrift {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-15px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* Decorative corner accents instead of crossing lines */
+.hero-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-color: rgba(184, 146, 47, 0.2);
+  border-style: solid;
+  z-index: 1;
+}
+.hero-corner--tl { top: 2rem; left: 2rem; border-width: 1px 0 0 1px; }
+.hero-corner--tr { top: 2rem; right: 2rem; border-width: 1px 1px 0 0; }
+.hero-corner--bl { bottom: 2rem; left: 2rem; border-width: 0 0 1px 1px; }
+.hero-corner--br { bottom: 2rem; right: 2rem; border-width: 0 1px 1px 0; }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-pretext {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeSlideUp 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 10vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: titleReveal 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-title .title-accent {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes titleReveal {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tagline {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 1s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-date {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-top: 0.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 1s 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2.5rem 0 3rem;
+  opacity: 0;
+  animation: fadeSlideUp 1s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.countdown-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.countdown-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: var(--text-primary);
+  line-height: 1;
+  position: relative;
+}
+
+.countdown-num::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 1px;
+  background: var(--gold-dark);
+}
+
+.countdown-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  padding: 1.1rem 3.5rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeSlideUp 1s 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(212, 168, 67, 0.3);
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.cta-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--gold), transparent 40%, transparent 60%, var(--gold-dark));
+  z-index: -1;
+  opacity: 0;
+  animation: btnGlow 3s ease-in-out 2s infinite;
+}
+
+@keyframes btnGlow {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.6; }
+}
+
+
+/* ========== SECTION STYLING ========== */
+section {
+  position: relative;
+  padding: 6rem 2rem;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 2.5rem;
+}
+
+/* ========== EXPERIENCE SECTION ========== */
+.experience {
+  background:
+    radial-gradient(ellipse 50% 50% at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%),
+    var(--bg-deep);
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.experience-card {
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 168, 67, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.experience-card:hover {
+  border-color: rgba(212, 168, 67, 0.2);
+  transform: translateY(-2px);
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+}
+
+.experience-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.experience-card h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.experience-card p {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Venue showcase */
+.venue-hero-img {
+  width: 100%;
+  aspect-ratio: 16/7;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212, 168, 67, 0.1);
+}
+
+.venue-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85) contrast(1.05);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.venue-hero-img:hover img {
+  transform: scale(1.02);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.venue-hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,8,6,0.3) 0%, transparent 30%, transparent 70%, rgba(10,8,6,0.5) 100%);
+  pointer-events: none;
+}
+
+.venue-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.venue-gallery-item {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(212, 168, 67, 0.08);
+}
+
+.venue-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.8) contrast(1.05);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.venue-gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.venue-gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10,8,6,0.4) 100%);
+  pointer-events: none;
+}
+
+.venue-gallery-item .gallery-label {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(242, 235, 221, 0.7);
+  z-index: 2;
+}
+
+/* Venue video */
+.venue-video-wrap {
+  margin-top: 1.5rem;
+  position: relative;
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.venue-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.venue-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,8,6,0.2) 0%, transparent 15%, transparent 85%, rgba(10,8,6,0.3) 100%);
+  pointer-events: none;
+}
+
+.venue-video-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 235, 221, 0.6);
+}
+
+/* ========== INCLUDED SECTION ========== */
+.included {
+  background:
+    linear-gradient(180deg, var(--bg-deep), #0C0A07, var(--bg-deep));
+}
+
+.included-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.included-divider-line {
+  background: linear-gradient(180deg, transparent, var(--gold-dark), transparent);
+  height: 100%;
+  min-height: 200px;
+}
+
+.included-column h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.included-column ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.included-column li {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.included-column li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--gold-dark);
+  transform: rotate(45deg);
+}
+
+.included-column.bring li::before {
+  background: none;
+  border-color: var(--text-muted);
+}
+
+.included-column.covered li::before {
+  background: var(--gold-dark);
+}
+
+/* ========== APPLICATION SECTION ========== */
+.application {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(212, 168, 67, 0.05) 0%, transparent 60%),
+    var(--bg-deep);
+}
+
+.application-intro {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.form-group label .optional {
+  color: var(--text-muted);
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.8rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  padding: 0.9rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.08);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238A8279' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-group select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* Competitive scale */
+.scale-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scale-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--text-muted), var(--gold));
+  outline: none;
+  cursor: pointer;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.scale-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border: 2px solid var(--bg-deep);
+  border-radius: 0;
+  cursor: pointer;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(212, 168, 67, 0.3);
+}
+
+.scale-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border: 2px solid var(--bg-deep);
+  border-radius: 0;
+  cursor: pointer;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(212, 168, 67, 0.3);
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.scale-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* Radio group */
+.radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio-option {
+  flex: 1;
+  position: relative;
+}
+
+.radio-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-option label.radio-label {
+  display: block;
+  padding: 0.9rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.radio-option input:checked + label.radio-label {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(212, 168, 67, 0.05);
+}
+
+.radio-option label.radio-label:hover {
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+/* Submit */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1.2rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(212, 168, 67, 0.25);
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Success overlay */
+.form-success {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--bg-deep);
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.form-success.active {
+  display: flex;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.form-success-icon {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--gold);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.form-success-icon svg {
+  transform: rotate(-45deg);
+  color: var(--gold);
+}
+
+.form-success h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.form-success p {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(212, 168, 67, 0.08);
+}
+
+.footer-brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.footer-note {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  section { padding: 4rem 1.5rem; }
+
+  .countdown { gap: 1rem; }
+  .countdown-block { min-width: 55px; }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+    border-left: 2px solid rgba(212, 168, 67, 0.15);
+    border-top: none;
+  }
+
+  .experience-card:hover::before { display: none; }
+  .experience-card::before { display: none; }
+
+  .included-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .included-divider-line {
+    display: none;
+  }
+
+  .included-column:last-child {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 168, 67, 0.1);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .application-intro {
+    font-size: 0.95rem;
+  }
+
+  .section-heading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .venue-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-corner { display: none; }
+
+  .cursor-glow { display: none; }
+}
+
+@media (max-width: 480px) {
+  .venue-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .countdown-num {
+    font-size: 2rem;
+  }
+  .radio-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-corner hero-corner--tl"></div>
+  <div class="hero-corner hero-corner--tr"></div>
+  <div class="hero-corner hero-corner--bl"></div>
+  <div class="hero-corner hero-corner--br"></div>
+
+  <div class="hero-content">
+    <p class="hero-pretext">You have been selected</p>
+    <h1 class="hero-title">
+      <span>THE</span>
+      <span class="title-accent">FLIGHT</span>
+      <span>GAMES</span>
+    </h1>
+    <p class="hero-tagline">16 Players. One Secret. Only the sharpest survive.</p>
+    <p class="hero-date">June 26 — 28, 2026 &nbsp;&bull;&nbsp; Somewhere in Texas</p>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-days">000</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-mins">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-secs">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+
+    <a href="#apply" class="cta-btn">Apply Now</a>
+  </div>
+
+</section>
+
+<!-- ==================== THE EXPERIENCE ==================== -->
+<section class="experience">
+  <div class="section-inner">
+    <p class="section-label reveal">The Experience</p>
+    <h2 class="section-heading reveal reveal-delay-1">This Isn't a Party.<br>It's a Production.</h2>
+    <div class="section-divider reveal reveal-delay-2"></div>
+
+    <div class="experience-grid">
+      <div class="experience-card reveal reveal-delay-2">
+        <span class="experience-icon">&#9883;</span>
+        <h3>A Private Town</h3>
+        <p>An Old West town in the Texas countryside. Every building, every street, every saloon — it's all yours. No outsiders. No escape.</p>
+      </div>
+      <div class="experience-card reveal reveal-delay-3">
+        <span class="experience-icon">&#9733;</span>
+        <h3>Cash on the Line</h3>
+        <p>Real money. Real stakes. Prizes for the sharpest, the boldest, and the most entertaining. How far will you go?</p>
+      </div>
+      <div class="experience-card reveal reveal-delay-4">
+        <span class="experience-icon">&#9782;</span>
+        <h3>Filmed for TikTok</h3>
+        <p>This is a reality series. Confessionals. Alliances. Betrayals. Every moment captured. Your story will be told.</p>
+      </div>
+      <div class="experience-card reveal reveal-delay-5">
+        <span class="experience-icon">&#9760;</span>
+        <h3>16 Players. One Winner.</h3>
+        <p>Three days. Challenges, secrets, and votes. Trust no one. Suspect everyone. Only the sharpest survive Tombstone.</p>
+      </div>
+    </div>
+
+    <!-- Venue hero image — aerial dusk shot -->
+    <div class="venue-hero-img reveal reveal-delay-3">
+      <img src="assets/venue-4.avif" alt="Aerial view of private Old West town at dusk" loading="lazy">
+    </div>
+
+    <!-- Venue gallery — 6 images, showing the full experience -->
+    <div class="venue-gallery reveal reveal-delay-4">
+      <div class="venue-gallery-item">
+        <img src="assets/venue-3.avif" alt="Private pool with water features" loading="lazy">
+        <span class="gallery-label">The Pool</span>
+      </div>
+      <div class="venue-gallery-item">
+        <img src="assets/venue-1.avif" alt="Outdoor fireplace at sunset" loading="lazy">
+        <span class="gallery-label">The Firepit</span>
+      </div>
+      <div class="venue-gallery-item">
+        <img src="assets/venue-5.avif" alt="The Saloon interior with bar and loft" loading="lazy">
+        <span class="gallery-label">The Saloon</span>
+      </div>
+      <div class="venue-gallery-item">
+        <img src="https://lirp.cdn-website.com/a9056619/dms3rep/multi/opt/Screenshot+2024-07-29+at+10.04.52-AM-1000h.png" alt="The Jail room with iron bars" loading="lazy">
+        <span class="gallery-label">The Jail</span>
+      </div>
+    </div>
+
+    <!-- Venue tour video -->
+    <div class="venue-video-wrap reveal reveal-delay-5">
+      <video src="assets/venue-tour.mp4" muted playsinline preload="metadata" controls poster="assets/venue-4.avif"></video>
+      <span class="venue-video-label">Take the tour</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHAT'S INCLUDED ==================== -->
+<section class="included">
+  <div class="section-inner">
+    <p class="section-label reveal">The Details</p>
+    <h2 class="section-heading reveal reveal-delay-1">What You Get.<br>What You Bring.</h2>
+    <div class="section-divider reveal reveal-delay-2"></div>
+
+    <div class="included-grid reveal reveal-delay-3">
+      <div class="included-column covered">
+        <h3>Covered by the House</h3>
+        <ul>
+          <li>Private town rental — all buildings, all access</li>
+          <li>Pool, hot tub, saloon, theater &amp; full amenities</li>
+          <li>All game activities and challenges</li>
+          <li>Professional production crew &amp; cameras</li>
+          <li>Cash prizes for winners</li>
+          <li>Meals and provisions all weekend</li>
+        </ul>
+      </div>
+
+      <div class="included-divider-line"></div>
+
+      <div class="included-column bring">
+        <h3>What You Bring</h3>
+        <ul>
+          <li>Your flight to Dallas, TX</li>
+          <li>$200 activity contribution</li>
+          <li>Clothes for 3 days — think Texas heat</li>
+          <li>Swimsuit</li>
+          <li>A strategy</li>
+          <li>Your A-game</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== APPLICATION ==================== -->
+<section class="application" id="apply">
+  <div class="section-inner" style="position:relative;">
+    <p class="section-label reveal">Cast Application</p>
+    <h2 class="section-heading reveal reveal-delay-1">Think You Can<br>Handle It?</h2>
+    <div class="section-divider reveal reveal-delay-2"></div>
+
+    <p class="application-intro reveal reveal-delay-2">
+      Not everyone who applies will be selected. We're casting 16 players for three days of competition, content, and chaos. If you've got the personality, the nerve, and the presence — make your case.
+    </p>
+
+    <form id="applicationForm" class="reveal reveal-delay-3" novalidate>
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="instagram">Instagram Handle</label>
+          <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tiktok">TikTok Handle <span class="optional">(optional)</span></label>
+          <input type="text" id="tiktok" name="tiktok" placeholder="@yourhandle">
+        </div>
+
+        <div class="form-group">
+          <label for="city">City You're Flying From</label>
+          <input type="text" id="city" name="city" placeholder="e.g. Los Angeles, CA">
+        </div>
+
+        <div class="form-group full-width">
+          <label for="pitch">Why should you be cast in The Flight Games?</label>
+          <textarea id="pitch" name="pitch" placeholder="Sell yourself. What do you bring to the table? Are you the strategist, the wildcard, the smooth talker? This is your audition." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>How competitive are you?</label>
+          <div class="scale-container">
+            <div class="scale-value" id="scaleDisplay">5</div>
+            <input type="range" class="scale-slider" id="competitive" name="competitive" min="1" max="10" value="5">
+            <div class="scale-labels">
+              <span>Chill vibes</span>
+              <span>Unhinged competitor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Comfortable being filmed for social media?</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="filmYes" name="filmed" value="yes" required>
+              <label class="radio-label" for="filmYes">Absolutely</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="filmNo" name="filmed" value="no">
+              <label class="radio-label" for="filmNo">Not really</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="dietary">Dietary Restrictions <span class="optional">(optional)</span></label>
+          <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, allergies, etc.">
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit" class="submit-btn">Submit Application</button>
+          <p class="form-note">Selected applicants will be notified by April 15, 2026. Not everyone who applies will be chosen.</p>
+        </div>
+
+      </div>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3>Application Received</h3>
+      <p>Watch your inbox. If you're selected, you'll know. If you don't hear back — better luck next time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <p class="footer-brand">THE FLIGHT GAMES &nbsp;&bull;&nbsp; JUNE 2026 &nbsp;&bull;&nbsp; TEXAS</p>
+  <p class="footer-note">This is an invite-only event. Applying does not guarantee a spot. Selected players will be contacted directly. All attendees must sign a media release upon arrival.</p>
+</footer>
+
+<script>
+// ===== Countdown Timer =====
+(function() {
+  const target = new Date('2026-06-26T15:00:00-05:00').getTime();
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minsEl = document.getElementById('cd-mins');
+  const secsEl = document.getElementById('cd-secs');
+
+  function update() {
+    const now = Date.now();
+    const diff = Math.max(0, target - now);
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    daysEl.textContent = String(d).padStart(3, '0');
+    hoursEl.textContent = String(h).padStart(2, '0');
+    minsEl.textContent = String(m).padStart(2, '0');
+    secsEl.textContent = String(s).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
+})();
+
+// ===== Scroll Reveal =====
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+})();
+
+// ===== Cursor Glow =====
+(function() {
+  const glow = document.getElementById('cursorGlow');
+  if (!glow || window.innerWidth < 769) return;
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+})();
+
+// ===== Competitive Scale =====
+(function() {
+  const slider = document.getElementById('competitive');
+  const display = document.getElementById('scaleDisplay');
+  if (!slider || !display) return;
+  slider.addEventListener('input', () => {
+    display.textContent = slider.value;
+  });
+})();
+
+// ===== Form Submission =====
+(function() {
+  const form = document.getElementById('applicationForm');
+  const success = document.getElementById('formSuccess');
+  if (!form || !success) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Basic validation
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(input => {
+      if (!input.value.trim() && input.type !== 'radio') {
+        input.style.borderColor = '#8B2D2D';
+        valid = false;
+      } else if (input.type !== 'radio') {
+        input.style.borderColor = '';
+      }
+    });
+
+    // Check radio
+    const filmed = form.querySelector('input[name="filmed"]:checked');
+    if (!filmed) {
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Show success
+    form.style.display = 'none';
+    success.classList.add('active');
+
+    // Scroll to success
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+</script>
+
+</body>
+</html>
