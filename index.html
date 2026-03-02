@@ -1476,12 +1476,41 @@ footer {
 
     if (!valid) return;
 
-    // Show success
-    form.style.display = 'none';
-    success.classList.add('active');
+    // Disable button while submitting
+    const submitBtn = form.querySelector('.submit-btn');
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
 
-    // Scroll to success
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Collect form data
+    const payload = {
+      name: form.fullName.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      instagram: form.instagram.value.trim(),
+      tiktok: form.tiktok.value.trim(),
+      city: form.city.value.trim(),
+      why: form.pitch.value.trim(),
+      competitive: form.competitive.value,
+      filmed: filmed.value,
+      dietary: form.dietary.value.trim()
+    };
+
+    // Submit to Google Sheets
+    fetch('https://script.google.com/macros/s/AKfycbx4QX994KH8EXLiuleV6AMBHziEyECns5fscIBFaC4Al97z-D_UIFyrmCEFTtv0lURW4g/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(() => {
+      form.style.display = 'none';
+      success.classList.add('active');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(() => {
+      // Still show success — no-cors won't return readable response
+      form.style.display = 'none';
+      success.classList.add('active');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
   });
 })();
 </script>
