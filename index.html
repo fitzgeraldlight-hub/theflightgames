@@ -1106,11 +1106,11 @@ footer {
 <div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ==================== MUSIC ==================== -->
-<audio id="bgMusic" loop preload="auto">
+<audio id="bgMusic" loop preload="auto" autoplay>
   <source src="assets/bg-music.mp3" type="audio/mpeg">
 </audio>
 
-<button class="music-toggle muted" id="musicToggle" aria-label="Toggle music">
+<button class="music-toggle" id="musicToggle" aria-label="Toggle music">
   <span class="icon-playing">
     <span class="music-bars">
       <span></span><span></span><span></span><span></span>
@@ -1125,7 +1125,6 @@ footer {
 <section class="hero">
   <div class="hero-video">
     <video autoplay muted loop playsinline preload="auto">
-      <source src="assets/hero-loop.mov" type="video/quicktime">
       <source src="assets/hero-loop.mp4" type="video/mp4">
     </video>
   </div>
@@ -1435,8 +1434,24 @@ footer {
   const btn = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
   if (!btn || !audio) return;
-  audio.volume = 0.15;
-  btn.addEventListener('click', () => {
+  audio.volume = 0.07;
+
+  // Try to autoplay — browsers may block it
+  var playAttempt = audio.play();
+  if (playAttempt !== undefined) {
+    playAttempt.catch(function() {
+      // Autoplay blocked — show muted state, play on first user interaction
+      btn.classList.add('muted');
+      document.addEventListener('click', function startMusic() {
+        audio.play();
+        btn.classList.remove('muted');
+        document.removeEventListener('click', startMusic);
+      }, { once: true });
+    });
+  }
+
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
     if (audio.paused) {
       audio.play();
       btn.classList.remove('muted');
