@@ -7,14 +7,14 @@
 <meta name="description" content="16 Players. One Secret. Only the sharpest survive. June 26-28, 2026.">
 <meta property="og:title" content="THE FLIGHT GAMES — Apply Now">
 <meta property="og:description" content="16 Players. One Secret. Only the sharpest survive. A private town in Texas. June 26-28, 2026. $10,000 Grand Prize.">
-<meta property="og:image" content="https://theflightgames.com/assets/thumbnail.jpg">
+<meta property="og:image" content="https://theflightgames.com/assets/og-share.jpg">
 <meta property="og:url" content="https://theflightgames.com">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Flight Games">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="THE FLIGHT GAMES — $10,000 Grand Prize">
 <meta name="twitter:description" content="16 Players. One Secret. Only the sharpest survive. June 26-28, 2026. A private town in Texas.">
-<meta name="twitter:image" content="https://theflightgames.com/assets/thumbnail.jpg">
+<meta name="twitter:image" content="https://theflightgames.com/assets/og-share.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -709,6 +709,131 @@ section {
   background: var(--gold-dark);
 }
 
+/* ========== YOUR INVESTMENT SECTION ========== */
+.investment {
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(212, 168, 67, 0.06) 0%, transparent 50%),
+    var(--bg-deep);
+}
+
+.investment-intro {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 650px;
+  margin-bottom: 2.5rem;
+}
+
+.investment-tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.investment-tier {
+  padding: 2.5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+
+.investment-tier:hover {
+  border-color: rgba(212, 168, 67, 0.25);
+}
+
+.investment-tier::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.tier-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.tier-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tier-note {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.investment-perks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 168, 67, 0.06);
+  transition: border-color 0.3s ease;
+}
+
+.perk-item:hover {
+  border-color: rgba(212, 168, 67, 0.15);
+}
+
+.perk-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.perk-text h4 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.perk-text p {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .investment-tiers {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .investment-perks {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== APPLICATION SECTION ========== */
 .application {
   background:
@@ -1259,12 +1384,83 @@ footer {
         <h3>What You Bring</h3>
         <ul>
           <li>Your flight to Dallas, TX</li>
-          <li>$200 activity contribution</li>
+          <li>Activity contribution — $300 (women) / $400 (men)</li>
           <li>Clothes for 3 days — think Texas heat</li>
           <li>Swimsuit</li>
           <li>A strategy</li>
           <li>Your A-game</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== YOUR INVESTMENT ==================== -->
+<section class="investment">
+  <div class="section-inner">
+    <p class="section-label reveal">Your Investment</p>
+    <h2 class="section-heading reveal reveal-delay-1">Where Every Dollar Goes.</h2>
+    <div class="section-divider reveal reveal-delay-2"></div>
+
+    <p class="investment-intro reveal reveal-delay-2">
+      This isn't a ticket to a party — it's a buy-in to an experience. Your contribution funds an activity pool that makes this weekend unforgettable. Here's what you're walking into.
+    </p>
+
+    <div class="investment-tiers reveal reveal-delay-3">
+      <div class="investment-tier">
+        <div class="tier-label">Women</div>
+        <div class="tier-price">$300</div>
+        <div class="tier-note">+ your flight</div>
+      </div>
+      <div class="investment-tier">
+        <div class="tier-label">Men</div>
+        <div class="tier-price">$400</div>
+        <div class="tier-note">+ your flight</div>
+      </div>
+    </div>
+
+    <div class="investment-perks reveal reveal-delay-4">
+      <div class="perk-item">
+        <span class="perk-icon">&#127860;</span>
+        <div class="perk-text">
+          <h4>Private Chef</h4>
+          <p>Full meals all weekend — breakfast, lunch, dinner. No grocery runs. No cooking. Just eat.</p>
+        </div>
+      </div>
+      <div class="perk-item">
+        <span class="perk-icon">&#127926;</span>
+        <div class="perk-text">
+          <h4>DJ &amp; Nightlife</h4>
+          <p>Live DJ sets, saloon parties, late-night vibes. The town doesn't sleep until you do.</p>
+        </div>
+      </div>
+      <div class="perk-item">
+        <span class="perk-icon">&#128014;</span>
+        <div class="perk-text">
+          <h4>Horseback Riding</h4>
+          <p>This is Texas. You're riding through open country on a real ranch. Mandatory main character energy.</p>
+        </div>
+      </div>
+      <div class="perk-item">
+        <span class="perk-icon">&#127946;</span>
+        <div class="perk-text">
+          <h4>Lake Day</h4>
+          <p>Kayaks, boats, and open water on Cedar Creek Lake. The calm before the chaos.</p>
+        </div>
+      </div>
+      <div class="perk-item">
+        <span class="perk-icon">&#127942;</span>
+        <div class="perk-text">
+          <h4>Cash Prizes</h4>
+          <p>Real money on the line. Grand prize, fan favorite, best confessional — multiple ways to win.</p>
+        </div>
+      </div>
+      <div class="perk-item">
+        <span class="perk-icon">&#127909;</span>
+        <div class="perk-text">
+          <h4>Full Production</h4>
+          <p>Professional cameras, confessional booth, drone footage. You're not just playing — you're starring.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1312,6 +1508,20 @@ footer {
         <div class="form-group">
           <label for="city">City You're Flying From</label>
           <input type="text" id="city" name="city" placeholder="e.g. Los Angeles, CA">
+        </div>
+
+        <div class="form-group full-width">
+          <label>I'm applying as</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="genderFemale" name="gender" value="female" required>
+              <label class="radio-label" for="genderFemale">Female — $300</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="genderMale" name="gender" value="male">
+              <label class="radio-label" for="genderMale">Male — $400</label>
+            </div>
+          </div>
         </div>
 
         <div class="form-group full-width">
@@ -1489,9 +1699,10 @@ footer {
       }
     });
 
-    // Check radio
+    // Check radios
     const filmed = form.querySelector('input[name="filmed"]:checked');
-    if (!filmed) {
+    const gender = form.querySelector('input[name="gender"]:checked');
+    if (!filmed || !gender) {
       valid = false;
     }
 
@@ -1513,7 +1724,8 @@ footer {
       why: form.pitch.value.trim(),
       competitive: form.competitive.value,
       filmed: filmed.value,
-      dietary: form.dietary.value.trim()
+      dietary: form.dietary.value.trim(),
+      gender: gender.value
     };
 
     // Submit to Google Sheets
